@@ -1,5 +1,9 @@
 
 <style>
+.blurBackground{
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 auto;
+}
 
 .sameLine {display: inline-block;}
 button {margin-left: 10px;
@@ -62,7 +66,7 @@ button {margin-left: 10px;
 
 <div class="background-area content">
   <section id="addRecipe">
-    <div class="container">
+    <div class="container blurBackground">
 
 
       <div class="row">  {{!-- title --}}
@@ -78,7 +82,7 @@ button {margin-left: 10px;
       </div> {{!-- .row title--}}
 
       <div class="row"> {{!-- .row --}}
-        <div class="container col-md-12"> {{!-- form --}}
+        <div class="container col-md-6"> {{!-- form --}}
           <form class="create-update-form" id="addRecipeForm" >
 
 
@@ -130,9 +134,7 @@ button {margin-left: 10px;
                   <option value="side+dish">Side Dish</option>
                   <option value="soup">Soup</option>
                 </select>
-            </div>
 
-            <div class="container col-md-6">
               <label for="prepMins">Preparation Minutes: </label>
               <input type="text" class="form-control" id="prepMins">
 
@@ -141,23 +143,24 @@ button {margin-left: 10px;
 
               <label for="servings">Servings: </label>
               <input type="text" class="form-control" id="servings">
+            
             </div> {{!-- .container col-md-6 --}}
 
-            <div class="container col-md-12">
+            <!-- <div class="container col-md-6">
               <label for="ingredient">Recipe Ingredients: </label>
               <br>
-            </div>
+            </div> -->
 
-            <div class="container col-md-12 ingrBlock ">
-              <div class="container col-md-12">
+            <div class="container col-md-6 ingrBlock ">
+              <div class="container col-md-6">
                 <h3 class="text-center lead">Build Your Ingredients List Here</h3>
               </div>
 
-              <div class="row">
-                <div class="container col-md-8 ingrBlock">
-
+              <!-- <div class="row"> -->
+                <!-- <div class="container col-md-4 ingrBlock">
+ -->
                   <div class="row">
-                    <div class="container col-md-8 ingrBlock">
+                    <div class="container col-md-4 ingrBlock">
                       <table class="table borderTable" id="ingrTable">
                         <tr>
                           <th>Ingredient</th>
