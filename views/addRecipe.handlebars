@@ -4,18 +4,13 @@
 .sameLine {
   display: inline-block;
 }
-button {
-  margin-left: 10px;
-  outline: none;
-  border: none;
-  background: none;
-}
+
 .categoryUL {
   display: none;
 }
 
-.instructions{
-  max-height: 150px;
+#instructions{
+  max-height: 500px;
   overflow-y: auto;
 }
 .instructions::-webkit-scrollbar{
@@ -29,6 +24,29 @@ button {
 .inPantryStyle {
   background-color: green;
   font-weight: bold;
+}
+
+.ingredientContainer {
+  max-height: 430px;
+}
+
+#addToList {
+  margin: 30px auto;
+
+  position: absolute;
+}
+
+#submitRecipe {
+  margin: 30px auto;
+  font-weight: 600;
+  color: red;
+  background: buttonface;
+  height: 50px;
+  border: 2px solid red;
+}
+
+table {
+  min-height: 250px;
 }
 
 
@@ -49,7 +67,7 @@ button {
           <div class="col-md-12"> 
 
 
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="panel panel-default">
                 <div class="panel-heading">Basic Info
                 </div>
@@ -146,25 +164,42 @@ button {
                     
             </div> {{!-- .container col-md-x --}}
 
-            <div class="col-md-8">
 
+            <div class="container col-md-6">
               <div class="panel panel-default">
-                <div class="panel-heading">Ingredients
+                <div class="panel-heading">Instructions
                 </div>
                 <div class="panel-body">
+                  <div class="form-group">
 
-                  <div class="row">
-                    <div class="col-md-8">
-                      <table class="table borderTable" id="ingrTable">
-                        <tr>
-                          <th>Ingredient</th>
-                          <th>Amount</th>
-                          <th>Unit</th>
-                        </tr>
-                      </table>
-                      <br>
-                    </div>
+                    <label for="instructions">Instructions: </label>
+                    <textarea class="form-control" rows="8" id="instructions" id="instructions"></textarea>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div> {{!-- .col-md-12 --}}
+        </div> {{!-- .row --}}
+
+
+
+        <div class="col-md-12">
+
+          <div class="panel panel-default">
+            <div class="panel-heading">Ingredients
+            </div>
+            <div class="panel-body">
+
+              <div class="row">
+                <div class="col-md-8">
+                  <table class="table borderTable" id="ingrTable">
+                    <tr>
+                      <th>Ingredient</th>
+                      <th>Amount</th>
+                      <th>Unit</th>
+                    </tr>
+                  </table>
+                  <br>
 
                   <div class="row">
                     <div class="col-md-4">
@@ -182,53 +217,43 @@ button {
                       <label for="ingredientUnit">Units: </label>
                       <input type="text" class="form-control" id="ingredientUnit">
                     </div>{{!-- .col-md-2 --}}
-
                   </div>{{!-- .row --}}
+                </div> {{!-- .col-md-8 --}}
 
-                  <div class="row">
-                    <div class="col-md-8">
-                      <label for="list">Ingredient List: </label>
+                <div class="col-md-4">
+                  <label for="list">Ingredient List: </label>
 
-                      <div class="ingredientContainer" id="pantryList">
-                        {{! ***** ingredients grouped by categories go here}}
-                        {{#each categories}}
-                          <div>
-                            <h4 class="categorySection">{{this.className}}</h4>
-                            <ul class = "categoryUL catID{{this.id}}">
+                  <div class="panel-body scroll-area">
+                    <div class="ingredientContainer" id="pantryList">
+                      {{! ***** ingredients grouped by categories go here}}
+                      {{#each categories}}
+                        <div>
+                          <h4 class="categorySection">{{this.className}}</h4>
+                          <ul class = "categoryUL catID{{this.id}}">
 
-                            </ul>
-                          </div>
-                        {{/each}}
-                      </div> {{!-- .ingredientContainer --}}
-                    </div>
-                    <div class="col-md-8">
-                      <button type="button" class="btn btn-default form-control" id="addToList">Add Ingredient</button>
-                    </div> {{!-- .col-md-8 --}}
-                  </div> {{!-- .row --}}
-                </div> {{!-- .panel-body --}}
-              
-              </div> {{!-- .panel panel-default --}}
-            </div class="container col-md-8">
-          </div> {{!-- .col-md-12 --}}
-        </div> {{!-- .row --}}
+                          </ul>
+                        </div>
+                      {{/each}}
+                    </div> {{!-- .ingredientContainer --}}
+                  </div> {{!-- /scroll-area --}}
+                </div>
 
-        <div class="container col-md-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">Instructions
-            </div>
-            <div class="panel-body">
-              <div class="form-group">
 
-                <label for="instructions">Instructions: </label>
-                <textarea class="form-control" rows="8" id="instructions" id="instructions"></textarea>
-              </div>
-            </div>
-          </div>
+                <div class="col-md-8">
+                  <button type="button" class="btn btn-default form-control" id="addToList">Add Ingredient</button>
+                </div> {{!-- .col-md-8 --}}
 
-            {{!-- form submit button  --}}
-            <button type="button" id="submitRecipe" class="btn btn-default form-control" align="center">Add Recipe</button>
 
-        </div>{{!-- .container col-md-12 --}}
+              </div> {{!-- .row --}}
+            </div> {{!-- .panel-body --}}
+          
+          </div> {{!-- .panel panel-default --}}
+        </div class="container col-md-12">
+
+        {{!-- form submit button  --}}
+        <button type="button" id="submitRecipe" class="btn btn-default form-control" align="center">Add Recipe</button>
+
+
       </form>
     </div>{{!-- .container --}}
   </section>{{!-- #addRecipe --}}

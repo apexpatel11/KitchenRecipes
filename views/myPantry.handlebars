@@ -7,11 +7,11 @@
   </div>
   <div class="container">
     {{! ************* DIVISION FOR LIST OF CATEGORIES ************************** -}}
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">Select A Category
         </div>
-        <div class="panel-body">
+        <div class="panel-body scroll-area">
           <div class="ingredientContainer" id="catList">
 
             {{#each categories}}
@@ -26,12 +26,12 @@
     </div>
 
     {{! ************* DIVISION FOR INGREDIENTS IN SELECTED CATEGORY ************************** -}}
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="panel panel-default">
         <div class="panel-heading">Check Ingredients
         </div>
 
-        <div class="panel-body">
+        <div class="panel-body scroll-area">
           <div class="ingredientContainer" id="pantryList">
 
             {{#each categories}}
@@ -50,7 +50,7 @@
     </div>
 
     {{! ************* DIVISION FOR GROCERY LIST}}
-    <div class="col-md-3">
+    <div class="col-md-4">
       <div class="panel panel-default createGroceryList">
         <div class="panel-heading">Grocery List</div>
         <div class="panel-body">
@@ -76,39 +76,41 @@
     </div>
 
     {{!-- ************* DIVISION FOR FORM TO ADD INGREDIENT --}}
-    <div class="col-md-3">
-      <div class="equalHWrap eqWrap">
-        <div class="containerTitle">
-          <div class="panel panel-default">
-            <div class="panel-heading">Add New Ingredient</div>
-            <div class="panel-body">
-              <form role="form" class="create-update-form" action="myPantry/update" method="POST">
-                <div class="form-group">
-                  <!-- Here we create the text box for capturing the search term-->
-                  <label for="search">
-                  </label>
-                  </br>
-                  <input type="text" class="form-control" id="bu" name="name">
-                  </br>
-                  <div class="categoryContainer" id="categoryList">
-                    <select name="category" class="form-control" id="categoryOptions">
+    <div class="col-md-offset-2 col-md-8">
 
-                    {{#each categories}}
-                      <option value="{{this.name}}">{{this.className}}</option>
-                    {{/each}}
+      <div class="containerTitle">
+        <div class="panel ">
+          <div class="panel-heading">Add New Ingredient</div>
+          <div class="panel-body">
+            <form role="form" class="create-update-form" action="myPantry/update" method="POST">
+              <div class="form-group">
+                <!-- Here we create the text box for capturing the search term-->
+                <label for="search">
+                </label>
+                </br>
+                <input type="text" class="form-control" id="bu" name="name">
+                </br>
+                <div class="categoryContainer" id="categoryList">
+                  <select name="category" class="form-control" id="categoryOptions">
 
-                    </select>
-                  </div>
-                  </br>
-                  </br>
-                  </br>
-                  <button id="add" type="submit" class="btn btn-default" ><i class="fa fa-check-square"></i> Add Now</button>
-                  <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear Results</button>
+                  {{#each categories}}
+                    <option value="{{this.name}}">{{this.className}}</option>
+                  {{/each}}
+
+                  </select>
                 </div>
-              </form>
-            </div>
+                </br>
+                </br>
+                </br>
+                <button id="add" type="submit" class="btn btn-default" ><i class="fa fa-check-square"></i> Add Now</button>
+                <button type="button" class="btn btn-default" id="clearAll"><i class="fa fa-trash"></i> Clear Results</button>
+              </div>
+            </form>
           </div>
         </div>
+      </div>
+
+
       </div>
     </div>
 
