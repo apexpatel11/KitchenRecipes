@@ -971,7 +971,7 @@ a.button {
     word-break:break-all;
    }
 
-.panel-body {
+.scroll-area {
   max-height: 90%;
   overflow-y: scroll;
 }
